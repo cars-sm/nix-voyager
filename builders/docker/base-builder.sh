@@ -147,9 +147,10 @@ setupEnvVariables(){
     }
 }
 
-# the main build will create the $DOCKER_CONTEXT folder (a working directory
-# that is accessible during the container build), copy all the required
-# setup scripts, configure all the build arguments,
+# this function will create the $DOCKER_CONTEXT folder (a working directory
+# that will be accessible by the container), copy all the required
+# setup scripts, configure all the build arguments, render the Dockerfile,
+# and run the docker build.
 makeDockerBuild(){
     mkdir $DOCKER_CONTEXT
     cp $dockerFile $DOCKER_CONTEXT/Dockerfile
